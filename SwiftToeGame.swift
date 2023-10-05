@@ -11,19 +11,6 @@ class SwiftToeGame: ObservableObject {
     var currentPlayer: String = "X"
     var audioPlayer: AVAudioPlayer?
     
-    func playBackgroundMusic() {
-        if let path = Bundle.main.path(forResource: "Storytelling-Essentials-Free-No-Copyright-Music-by-Liborio-Conti-01-Cinematic-Piano", ofType: ".mp3") {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                audioPlayer?.numberOfLoops = -1 // This will loop the audio indefinitely
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch {
-                print("Error playing background music")
-            }
-        }
-    }
-    
     func newGame() {
         board = Array(repeating: Array(repeating: "", count: 3), count: 3)
         scoreX = 0
